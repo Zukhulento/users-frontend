@@ -61,7 +61,6 @@ export const LoginPage = () => {
       try {
         const response = await api.post("/login", { ...formData });
         if (response.status == 200) {
-          console.log(response.data);
           const { token } = response.data;
           setToken(token);
           setFormErrors({});

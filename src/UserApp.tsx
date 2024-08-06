@@ -3,6 +3,8 @@ import { LoginPage } from "./Pages/LoginPage";
 import { RegisterPage } from "./Pages/RegisterPage";
 import { useAuthStore } from "./Stores/Auth.store";
 import { HomePage } from "./Pages/HomePage";
+import { UsersPage } from "./Pages/UsersPage";
+import { EditUsersPage } from "./Pages/users/EditUsersPage";
 
 export const UserApp = () => {
   const token = useAuthStore((state) => state.token);
@@ -14,6 +16,8 @@ export const UserApp = () => {
         {token ? (
           <>
             <Route path="/home" element={<HomePage />} />
+            <Route path="/users" element={<UsersPage />} />
+            <Route path="/users/edit/:id" element={<EditUsersPage />} />
             <Route path="/*" element={<Navigate to={"/home"} replace />} />
           </>
         ) : (

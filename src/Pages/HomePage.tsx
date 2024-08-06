@@ -1,9 +1,12 @@
+import { CardsComponent } from "../Components/Cards/CardsComponent";
 import { PrivateLayout } from "../Layouts/PrivateLayout";
 
 export const HomePage = () => {
   return (
     <PrivateLayout>
-      <div>HomePage</div>
+      <div className="flex">
+        <CardsComponent />
+      </div>
     </PrivateLayout>
   );
 };

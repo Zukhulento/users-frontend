@@ -1,0 +1,35 @@
+/* From Uiverse.io by Thomasfadi */ 
+  .cards .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 8px;
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    transition: 400ms;
+  }
+  
+  .cards .card p.tip {
+    font-size: 2em;
+    font-weight: 700;
+  }
+  
+  .cards .card p.second-text {
+    font-size: 1.4em;
+  }
+  
+  .cards .card:hover {
+    transform: scale(1.2, 1.2);
+  }
+  
+  .cards:hover > .card:not(:hover) {
+    filter: blur(10px);
+    background-color: #f1f1f1;
+    transform: scale(0.9, 0.9);
+  }

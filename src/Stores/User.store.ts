@@ -3,7 +3,7 @@ import { persist } from "zustand/middleware";
 import { customSessionStorage } from "./Storages/session.storage";
 
 interface UserData {
-  username: string;
+  username  : string;
   email: string;
   lastName: string;
   name: string;

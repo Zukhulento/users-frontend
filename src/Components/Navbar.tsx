@@ -17,7 +17,6 @@ export const Navbar = () => {
   const onLogOut = async () => {
     try {
       const response = await api.post("/logout");
-      console.log(response);
       const { status } = response;
       if (status == 200) {
         toast("Loggout", {
@@ -85,15 +84,29 @@ export const Navbar = () => {
             alt="logo"
             className="w-12 bg-white rounded-lg hover:scale-105 transition-all"
           /> */}
-          Home
+          <svg
+            className="w-12 h-12 text-white m-auto"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fillRule="evenodd"
+              d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z"
+              clipRule="evenodd"
+            />
+          </svg>
         </Link>
       </div>
       <div className="my-auto flex">
         <button className="w-12" onClick={() => changeStateUserSettings()}>
           <img
-            src={`${baseName}/Images/menu.png`}
+            src={`${baseName}/images/defaultImage.png`}
             alt="menu"
-            className="w-full bg-white rounded-lg hover:scale-105 transition-all"
+            className="w-full hover:scale-105 transition-all"
           />
         </button>
         {/* Aquí se valida si se puede o no mostrar los ajustes del usuario */}
