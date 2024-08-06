@@ -7,18 +7,18 @@ type LayoutProps = {
   children: ReactNode;
 };
 export const PrivateLayout = ({ children }: LayoutProps) => {
-
-  // Validando el token y datos de usuario
-const setUserData = useUserStore((state)=>state.setUserData)
+  // * Obtaining current user data
+  const setUserData = useUserStore((state) => state.setUserData);
   const obtainCurrentUserData = async () => {
     try {
       const response = await api.get("/me");
       const { data } = response;
-      setUserData(data)
+      setUserData(data);
     } catch (error) {
       console.log("Some error happened obtaining ther current user data.");
     }
   };
+  // TODO: Obtain current user permissions
 
   useEffect(() => {
     obtainCurrentUserData();

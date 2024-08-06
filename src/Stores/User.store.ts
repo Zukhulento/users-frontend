@@ -3,7 +3,7 @@ import { persist } from "zustand/middleware";
 import { customSessionStorage } from "./Storages/session.storage";
 
 interface UserData {
-  user: string;
+  username: string;
   email: string;
   lastName: string;
   name: string;
@@ -29,7 +29,7 @@ export const useUserStore = create<UserState>()(
       photoSource: null,
       setUserData: (obj) =>
         set({
-          user: obj.user,
+          user: obj.username,
           email: obj.email,
           lastName: obj.lastName,
           name: obj.name,
