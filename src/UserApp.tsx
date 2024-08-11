@@ -5,11 +5,13 @@ import { useAuthStore } from "./Stores/Auth.store";
 import { HomePage } from "./Pages/HomePage";
 import { UsersPage } from "./Pages/UsersPage";
 import { EditUsersPage } from "./Pages/users/EditUsersPage";
+import { Toaster } from "sonner";
 
 export const UserApp = () => {
   const token = useAuthStore((state) => state.token);
   return (
     <div className="font-roboto">
+      <Toaster />
       <Routes>
         {/* <Route path="/" element={<HomePage />} /> */}
         {/* Private routes */}

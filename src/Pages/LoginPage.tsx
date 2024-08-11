@@ -14,7 +14,6 @@ export interface FormErrors {
   username?: string;
   password?: string;
 }
-
 export const LoginPage = () => {
   const formInit = {
     username: "",
@@ -58,41 +57,28 @@ export const LoginPage = () => {
         },
       });
     } else {
-      try {
-        const response = await api.post("/login", { ...formData });
-        if (response.status == 200) {
+      await api
+        .post("/login", { ...formData })
+        .then((response) => {
+          console.log(response);
           const { token } = response.data;
           setToken(token);
           setFormErrors({});
           setFormData({ username: "", password: "" });
-        }
-      } catch (error) {
-        setFormErrors(errors);
-        toast.error("Not valid credentials", {
-          unstyled: true,
-          closeButton: true,
-          description: "Your password or email is incorrect",
-          duration: 5000,
-          classNames: {
-            toast: "bg-red-200 rounded-xl flex p-4",
-            title: "text-red-500 text-xl",
-            description: "text-red-400",
-            closeButton: "bg-red-500 hover:bg-red-600",
-            icon: "text-red-500",
-          },
+          toast("Welcome to user's-management", {
+            description: "Please try again later",
+          });
+          // setFormErrors(errors);
+        })
+        .catch((error) => {
+          console.log(error);
         });
-      }
     }
   };
 
   return (
     <PublicLayout>
       <div className="m-auto flex flex-col gap-4">
-        {/* <img
-          src={`${baseName}/Images/chat.png`}
-          alt="logo"
-          className="w-12 bg-gray-50 rounded-lg m-auto"
-        /> */}
         <svg
           className="w-12 h-12 text-white m-auto"
           aria-hidden="true"
