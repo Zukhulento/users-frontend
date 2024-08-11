@@ -71,7 +71,11 @@ export const LoginPage = () => {
           // setFormErrors(errors);
         })
         .catch((error) => {
-          console.log(error);
+          const { response } = error;
+          console.log(response);
+          toast("Could not login", {
+            description: response.data,
+          });
         });
     }
   };
